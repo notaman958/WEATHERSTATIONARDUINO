@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather app</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="css/style1.css" >
+    <!--to use jquery in common.js-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <!--Report if the backend ip is broken-->
+    <script src="js/alert.js"></script>
+
+  </head>
+
+  <body>
+    <!-- NAVBAR BEGINS -->
+    <div id="navbar-element"></div>
+    <!-- NAVBAR ENDS -->
+    <meta charset="UTF-8" />
+    
+    <!--divide into 3 part left is the diagram of sw right is the current weather state-->
+    <div class="fluid-container">
+    </div>
+    <div  class="container-fluid">
+      <div class="row">
+        <!--SW diagram-->
+          <div class="col-sm-5" style=" float: left">
+            <h1 > 
+              Welcome to the WeatherStation
+              <img src="weather.gif" class="cloud"/>
+            </h1>
+            <img src="weather.png" alt="weatherStation" usemap="#weathermap">
+          <!--Make map-->
+          <map name="weathermap" id="weathermap">
+          <area shape="circle" coords="400,100,23" alt="TAMKsensor" title="TAMK's sensors" href=""/>
+          <area shape="rect" coords="200,100,250,150" alt="Arduino" title="Circuitry with Arduino" href=""/>
+          <area shape="rect" coords="100,140,150,200" alt="TAMKsensor" title="Virtual Machines where receives and sends data" href=""/>
+          <area shape="circle" coords="100,300,23" alt="TAMKsensor" title="Creating backend database" href=""/>
+          <area shape="circle" coords="350,300,23" alt="TAMKsensor" title="Frontend Webpage :D" href=""/>
+          </map>
+      </div>
+          <div class="col-sm-2" >
+          <!--current weather state table-->
+          </div>
+          <div class="col-sm-4" style="float: right;">
+            <br/>
+            <h1 style=" font-family: Verdana, Geneva, Tahoma, sans-serif; text-align: center;  color: rgb(0, 0, 0); border-color: rgb(100, 7, 0);">
+              What is the weather like &#x2267;&#x25e1;&#x2266;
+            </h1>
+            <table  border="2" cellpadding="2" cellspacing="1" width="100%"  style="text-align:center;">
+              <tr style="background-color: rgb(67, 197, 89);color:white">
+                <td colspan="2" style=" width: 80px"> 
+                  <img src="frog.png" class="frog" usemap="#resetFrog"/>
+                  <map name="resetFrog" id="resetFrog">
+                    <area shape="circle" coords="90,70,70" alt="reset" title="Master! Poke me &#8594; reset page (づ &#x25D5;&#8255;&#x25D5; )づ " href="http://bowd31.course.tamk.cloud/"/>
+                  </map>
+               
+                </td>
+              </tr>
+              <tr>
+                <td><img src="thermomether.png" class="thermomether"/></td>
+                <td>  
+                  <div class='inner'>
+                    <div class='icon'></div>
+                   <nobr> <b class='number' id="temp"></b>
+                    <strong class='measure'>CELCIUS</strong></nobr>
+                  </div>
+
+                </td>
+              </tr>
+              <tr>
+                <td><img src="humid.png" class="humid"/></td>
+                <td>  
+                    <div class='inner'>
+                      <div class='title'>
+                        <b><nobr>Inside:</b> <strong id="humid_in">XX </strong></nobr>
+                      </br>
+                        <b><nobr>Outside:</b> <strong id="humid_out">XX </strong></nobr>
+                      </div>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="rain.png" class="rain"/></td>
+                <td>  
+                    <div class='inner'>
+                      <div class='title'>
+                        <div id="rain"></div>
+                      </div>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="sun.png" class="sun"/></td>
+                <td>  
+                    <div class='inner'>
+                      <div class='title'>
+                        <div id="sun"></div>
+                      </div>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="wind.png" class="wind"/></td>
+                <td>  
+                    <div class='inner'>
+                      <div class='title'>
+                        <b><nobr>Speed:</b> <strong id="wind_speed">XX </strong></nobr>
+                      </br>
+                        <b><nobr>Direction:</b> <strong id="wind_direction">XX </strong></nobr>
+                        
+                      </div>
+                    </div>
+                </td>
+              </tr>
+            </table>
+            <i>Updated every 5 minutes </i>
+          </div>
+         
+      </div>
+  </div>
+  
+    <div  class="footer">&#174; made by notaman1505</div>
+
+    <!-- Load JavaScript files here, just above closing body tag -->
+    <script src="js/common.js"></script>
+    <script src="js/home.js"></script>
+  </body>
+</html>

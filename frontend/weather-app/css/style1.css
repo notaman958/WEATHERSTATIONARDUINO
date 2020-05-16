@@ -1,0 +1,93 @@
+body{
+  font-size: 10pt;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+  line-height: 14pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+
+
+}
+h1{
+  font: 14pt Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-weight:bold;
+  line-height: 20pt;
+  padding-left: 5pt;
+  padding-top: 5pt;
+}
+p.subheader
+{
+  font-weight: bold;
+  color: black;
+}
+a{
+  text-decoration: none;
+}
+
+a.link,a:visited
+{
+  display: block;
+ 
+}
+
+a:hover, a:active
+{
+  display: block;
+  background-color: rgb(219, 88, 127);
+  font-weight: bold;
+}
+div.footer{
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: rgb(245, 31, 102);
+   text-align: center;
+}
+img.frog{
+  width: 45%;
+    height: 50%;
+  
+
+}
+img.thermomether
+{
+  widows: 5%;
+  height:10%;
+}
+img.humid
+{
+  widows: 5%;
+  height:5%;
+}
+img.rain
+{
+  widows: 10%;
+  height:15%;
+}
+img.sun
+{
+  widows: 10%;
+  height:15%;
+}
+img.wind
+{
+  widows: 10%;
+  height:10%;
+}
+img.cloud
+{
+  height: 10%;
+  width: 10%;
+}
+table {
+  border: 1pt black;
+}
+.title{
+  font-weight: 800;
+}
+table,tr{
+  color:rgb(6, 34, 15);
+  background-color: whitesmoke;
+}

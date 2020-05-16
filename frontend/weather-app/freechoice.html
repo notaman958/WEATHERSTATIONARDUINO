@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+    <title>Free choice</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style1.css" >
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+    <div id="navbar-element"></div>
+      <div class="container-fluid">
+        <h1 >Free Choice</h1>
+        <p id="text"></p>
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-sm-5">
+                    <div id="container">
+                        <table class="table table-striped" id="tableAdjust">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody id="list_tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col-sm-2" style="font-weight: bold;">
+                    <div class="dataButton">
+                        <label for="dataOption" >Select Data:</label>
+                        <select id="dataOption" onchange="getFreechoiceData()">
+                            <option value="temperature" selected>Temperature</option>
+                            <option value="humidity_out" >Humidity In</option>
+                            <option value="humidity_in">Humidity Out</option>
+                            <option value="light">Light</option>
+                            <option value="rain">Rain</option>
+                            <option value="wind_speed">Wind Speed</option>
+                            <option value="wind_direction">Wind Direction</option>
+                        </select>
+                    </div>
+                </br>
+                    <div class="timeButton">
+                        <label for="timeOption" >Select Time:</label>
+                    </br>
+                        <select id="timeOption" onchange="getFreechoiceTime()">
+                            <option value="live">Live</option>
+                            <option value="24" selected>24</option>
+                            <option value="48">48</option>
+                            <option value="72">72</option>
+                            <option value="168">1 week</option>
+                            <option value="720">1 month</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="col-sm-5" id="graphs">
+                    <canvas id="graph"></canvas>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="footer">&#174; made by notaman1505</div>
+
+    <script src="js/common.js"></script>
+    <script src="js/freechoice.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@1.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="js/graph2.js"></script>
+</body>
+</html>
