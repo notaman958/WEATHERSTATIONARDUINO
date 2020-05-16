@@ -16,7 +16,7 @@ For more detail of how the embedded system works please check <br/>
 
 With the database from the first move, it's time for individual work. With the help of lecturers, I were guided how to implement docker containers included frontend, adminer (postgreSQL), API and learnt quite a lot in working with github. After settling down all the backend. The aims of backend APIs are to group and filter necessary data in each endpoint for further usage in web visualization. Frontend part is one of the interesting parts in doing this project since It's time to do thing by own. Since the work is counted in GPA, we were required to meet some certain tasks like making graph, table, drop-down list,... <br/>
 For more detail of how I did please check <br/>
-folder: */frontend/weather* (frontend) and* /api* (backend)<br/>
+folder: */frontend/weather* (frontend) and /src/index.js(backend)<br/>
 *website*: [text](http://bowd31.course.tamk.cloud/)
 
 ***SPECIAL THANKS TO MY LECTURERS:***
