@@ -18,7 +18,7 @@ With the database from the first move, it's time for individual work. With the h
 Please kindly check <br/>
 folder: *./frontend/weather* (frontend) [click me](./frontend) <br/>
 <del> *website*: [text](http://bowd31.course.tamk.cloud/) deactivated </del> 
-
+## Demo: [click me](./demo)
 ***SPECIAL THANKS TO MY LECTURERS:***
 * Web: Mr Esa Parkkila and Mr Pekka Pöyry
 * Embedded: Mr Kari Naakka and Mr Esa Kunnari
