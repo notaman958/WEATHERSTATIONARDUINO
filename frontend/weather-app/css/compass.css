@@ -1,123 +1,125 @@
 /*styling*/
-#compass
-{
-    width: 100%; height: 100%;
-	box-sizing: border-box;
-    font-family: Verdana;
-    font-size: 20pt;
-    background: radial-gradient(
-        center 50px,
-        white,
-        #cdd5ff
-    );
-    /* */
-    width: 100px; height:400px;
-    border-radius: 50%;
-    margin: 0 auto;
-    position: static;
-    border: 10px solid rgb(100, 96, 96);
-    background: radial-gradient(
-        ellipse cover,
-        white,
-        #a3a3a3
-    );
-    box-shadow:
-    0 0 4px #000,
-    0 0 1px 8px #ccc,
-    5px 10px 15px #48436f;
-    transition:  transform 0.5s ease, box-shadow 0.5s ease;
+#compass {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: Verdana;
+  font-size: 20pt;
+  background: radial-gradient(center 50px, white, #cdd5ff);
+  /* */
+  width: 20%;
+  height: 400px;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: static;
+  border: 10px solid rgb(100, 96, 96);
+  background: radial-gradient(ellipse cover, white, #a3a3a3);
+  box-shadow: 0 0 4px #000, 0 0 1px 8px #ccc, 5px 10px 15px #48436f;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  position: relative;
 }
 
 #compass:hover {
-	transform: skewX(-2deg) skewY(-1deg);
-	
-	box-shadow:
-		0 0 4px rgb(101, 187, 113),
-		0 0 1px 8px #ccc,
-		8px 12px 3px 5px rgb(78, 71, 71),
-		20px 28px 20px #5c5155;
+  transform: skewX(-2deg) skewY(-1deg);
+
+  box-shadow: 0 0 4px rgb(101, 187, 113), 0 0 1px 8px #ccc,
+    8px 12px 3px 5px rgb(78, 71, 71), 20px 28px 20px #5c5155;
 }
 
 /* position directions*/
-#compass span{
-    position: relative;
-    font-weight: bold;
+#compass span {
+  position: relative;
+  font-weight: bold;
 }
 /* North */
 #compass span:nth-child(1) {
-	left: 165px; top: 30px;
+  position: absolute;
+  left: 50%;
+  top: 10%;
 }
 /* South */
 #compass span:nth-child(3) {
-	left: 110px; bottom: -330px;
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
 }
 
 /* East */
 #compass span:nth-child(2) {
-	right: -5px; top: 180px;
+  position: absolute;
+  top: 50%;
+  right: 10%;
 }
 /* West */
 #compass span:nth-child(4) {
-	left: 220px; top: 184px;
+  position: absolute;
+  top: 50%;
+  left: 10%;
 }
 /* pointer*/
 @keyframes rotate {
-	from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 #pointer {
-	width: 70px; height: 30px;
-	
-	/* Centering it */
-	position: relative;
-	left: 50%; top: 45%;
-	margin-left: -40px; margin-top: -15px;
-	
-	/*background: black;*/
-    -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
-   
- 
-}
+  width: 70px;
+  height: 30px;
 
+  /* Centering it */
+  position: relative;
+  left: 50%;
+  top: 45%;
+  margin-left: -40px;
+  margin-top: -15px;
+
+  /*background: black;*/
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
 
 /* make the pointer*/
 #pointer:before {
-	content: '';
-	
-	position: absolute;
-	left: 0; right: 0;
-	top: 0; bottom: 0;
-	
-	background: linear-gradient(
-        
-		rgba(79,188,242,1) 1%,
-		rgba(26,110,206,1) 50%,
-		rgba(216,216,216,1) 51%,
-		rgba(244,94,80,1) 53%,
-		rgba(255,45,45,1) 100%
-	);
-	
-    transform: skewX(-80deg)
+  content: '';
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  background: linear-gradient(
+    rgba(79, 188, 242, 1) 1%,
+    rgba(26, 110, 206, 1) 50%,
+    rgba(216, 216, 216, 1) 51%,
+    rgba(244, 94, 80, 1) 53%,
+    rgba(255, 45, 45, 1) 100%
+  );
+
+  transform: skewX(-80deg);
 }
 
 /*  pointer's joint  */
 
 #pointer:after {
-	content: '';
-	
-	width: 10px; height: 10px;
-	background: #4781c0;
-	border-radius: 50%;
-	box-shadow:
-		inset 0 0 4px 2px #4d4d4d,
-		0 0 5px 1px white;
-	
-	/* centering it */
-	position: absolute;
-	left: 50%; top: 50%;
-	margin-left: -5px; margin-top: -5px;
+  content: '';
+
+  width: 10px;
+  height: 10px;
+  background: #4781c0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 4px 2px #4d4d4d, 0 0 5px 1px white;
+
+  /* centering it */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -5px;
+  margin-top: -5px;
 }
