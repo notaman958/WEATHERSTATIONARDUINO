@@ -1,0 +1,8 @@
+FROM library/postgres
+RUN apt-get update
+RUN apt-get install -y nano
+ENV POSTGRES_USER weather
+ENV POSTGRES_PASSWORD weather
+ENV POSTGRES_DB weather_db
+COPY ./.dockerfiles/init_db.sql /docker-entrypoint-initdb.d/
+WORKDIR /docker-entrypoint-initdb.d

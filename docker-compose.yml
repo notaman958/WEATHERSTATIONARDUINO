@@ -1,24 +1,27 @@
-version: '2.4'
+version: '3'
 services:
-  frontend:
-   image: "${FRONTEND_IMAGE}"
-   ports:
-      - "80:80"
-   restart: always
   api:
-    image: "${API_IMAGE}"
+    build:
+      context: ./
+      dockerfile: .dockerfiles/apiDev
     ports:
-      - "9000:9000"
+      - '9000:9000'
+    volumes:
+      - ./api:/opt/api
     restart: always
+
   db:
-    image: "${DB_IMAGE}"
+    build:
+      context: ./
+      dockerfile: .dockerfiles/db
     ports:
-      - "5432:5432"
+      - '5432:5432'
     volumes:
       - /var/lib/postgresql/data
     restart: always
+
   adminer:
     image: adminer
     restart: always
     ports:
-      - "8080:8080"
+      - 8080:8080

@@ -1,0 +1,10 @@
+#! dockerfile
+FROM node:slim
+
+COPY ./api /opt/api
+RUN cd /opt/api && npm install
+
+WORKDIR /opt/api
+EXPOSE 9000
+
+CMD ["npm", "run", "start"]
