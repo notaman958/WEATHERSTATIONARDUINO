@@ -1,0 +1,24 @@
+version: '2.4'
+services:
+  frontend:
+   image: "${FRONTEND_IMAGE}"
+   ports:
+      - "80:80"
+   restart: always
+  api:
+    image: "${API_IMAGE}"
+    ports:
+      - "9000:9000"
+    restart: always
+  db:
+    image: "${DB_IMAGE}"
+    ports:
+      - "5432:5432"
+    volumes:
+      - /var/lib/postgresql/data
+    restart: always
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"

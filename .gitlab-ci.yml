@@ -1,0 +1,49 @@
+variables:
+  REMOTE_HOST: deploy@bowd31
+  REMOTE_DIR: app
+
+stages:
+  - deploy
+
+deploy:
+  image: docker:latest
+  stage: deploy
+  services:
+    - docker:dind
+  script:
+    # Prepare environmental variables
+    - export FRONTEND_IMAGE="${CI_REGISTRY_IMAGE}/frontend"
+    - export API_IMAGE="${CI_REGISTRY_IMAGE}/api"
+    - export DB_IMAGE="${CI_REGISTRY_IMAGE}/db"
+    # Install needed software
+    - apk update && apk add rsync openssh
+    # Login to GitLab
+    - docker login -u gitlab-ci-token -p "${CI_JOB_TOKEN}" "${CI_REGISTRY}"
+    # Copy the deploy-user SSH key to be able to log in to the VM
+    - mkdir -p ~/.ssh && (umask  077 ; echo "${DEPLOY_KEY_PRIVATE}" | base64 -d > ~/.ssh/id_rsa)
+    # Disable key checking
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    # Build the Docker image
+    - docker build -f frontend/weather-app/Dockerfile -t "${FRONTEND_IMAGE}" .
+    - docker build -f .dockerfiles/apiProd -t "${API_IMAGE}" .
+    - docker build -f .dockerfiles/db -t "${DB_IMAGE}" .
+    # Push the Docker image to GitLab registry
+    - docker push "${FRONTEND_IMAGE}"
+    - docker push "${API_IMAGE}"
+    - docker push "${DB_IMAGE}"
+    # Create a diretory to be copied to the remote server
+    - mkdir "${REMOTE_DIR}"
+    - cp docker-compose.server.yml "${REMOTE_DIR}/docker-compose.yml"
+    - echo "FRONTEND_IMAGE=${FRONTEND_IMAGE}" >> "${REMOTE_DIR}/.env"
+    - echo "API_IMAGE=${API_IMAGE}" >> "${REMOTE_DIR}/.env"
+    - echo "DB_IMAGE=${DB_IMAGE}" >> "${REMOTE_DIR}/.env"
+    # Copy files to the VM with rsync
+    - rsync -r "${REMOTE_DIR}" "${REMOTE_HOST}:./"
+    # Open SSH connection to the VM and start Docker containers
+    - ssh ${REMOTE_HOST} /bin/bash "
+        echo ${REMOTE_DIR};
+        cd ~/$REMOTE_DIR;
+        docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY;
+        docker-compose pull;
+        docker-compose up -d --force-recreate
+        "
